@@ -10,8 +10,8 @@ public class Professor extends Usuario{
     private String departamento;
     private List<Curso> cursoList =  new ArrayList<>();
 
-    public Professor(String name, String dataNascimento, String email,String departamento) {
-        super(name, dataNascimento, email);
+    public Professor(String name, String dataNascimento, String email,String senha, String departamento) {
+        super(name, dataNascimento, email,senha);
         this.departamento = departamento;
     }
 

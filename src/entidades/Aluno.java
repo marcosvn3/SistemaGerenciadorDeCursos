@@ -8,8 +8,8 @@ public class Aluno extends Usuario{
 
     private Long matricula;
 
-    public Aluno(String nome,String dataNascimento, String email,Long matricula) {
-        super(nome,dataNascimento,email);
+    public Aluno(String nome,String dataNascimento, String email,String senha,Long matricula) {
+        super(nome,dataNascimento,email,senha);
         this.matricula = matricula;
     }
 

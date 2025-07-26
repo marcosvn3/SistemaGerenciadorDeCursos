@@ -6,11 +6,14 @@ abstract class Usuario {
     private String name;
     private String dataNascimento;
     private String email;
+    private String senha;
 
-    public Usuario(String name, String dataNascimento, String email) {
+
+    public Usuario(String name, String dataNascimento, String email,String senha) {
         this.name = name;
         this.dataNascimento = dataNascimento;
         this.email = email;
+        this.senha = senha;
     }
 
     public String getName() {
@@ -37,10 +40,19 @@ abstract class Usuario {
         this.email = email;
     }
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     @Override
     public String toString() {
         return  "name='" + name + '\'' +
                 ", dataNascimento='" + dataNascimento + '\'' +
-                ", email='" + email + '\'';
+                ", email='" + email + '\''+
+                ", senha='" + senha + '\'';
     }
 }
