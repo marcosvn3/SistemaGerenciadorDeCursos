@@ -1,5 +1,7 @@
 package entidades;
 
+import exceptions.InvalidoException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +28,13 @@ public class Professor extends Usuario{
     }
 
     public void criarCurso(Curso curso){
-        cursoList.add(curso);
+        if(curso != null){
+            cursoList.add(curso);
+            System.out.println("Curso criado com sucesso");
+        }else{
+            throw new InvalidoException("Crie um curso Válido!");
+        }
+
     }
 
 

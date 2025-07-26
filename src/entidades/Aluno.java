@@ -1,5 +1,7 @@
 package entidades;
 
+import exceptions.InvalidoException;
+
 import java.util.Objects;
 
 public class Aluno extends Usuario{
@@ -23,10 +25,13 @@ public class Aluno extends Usuario{
      * @param curso
      */
     public void inscreverCurso(Curso curso){
-        curso.cadastrarAluno(this);
+        if(curso != null){
+            curso.cadastrarAluno(this);
+        }else{
+            throw new InvalidoException("Se inscreva em um curso válido!");
+        }
+
     }
-
-
 
     @Override
     public boolean equals(Object o) {
