@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class Aluno extends Usuario{
 
+
     private Long matricula;
 
     public Aluno(String nome,String dataNascimento, String email,String senha,Long matricula) {
