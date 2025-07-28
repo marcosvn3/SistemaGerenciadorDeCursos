@@ -37,5 +37,11 @@ public class Professor extends Usuario{
 
     }
 
+    public void listarCursos(){
+        for(Curso curso : cursoList){
+            System.out.println(curso);
+        }
+    }
+
 
 }

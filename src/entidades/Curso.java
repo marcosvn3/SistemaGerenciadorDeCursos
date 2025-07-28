@@ -11,8 +11,8 @@ public class Curso {
     private String descricao;
     private List<Aluno> alunos;
 
-    public Curso(String nome, String descricao) {
-        this.nome = nome;
+    public Curso(String nomeCurso, String descricao) {
+        this.nome = nomeCurso;
         this.descricao = descricao;
     }
 
@@ -43,5 +43,11 @@ public class Curso {
         for(Aluno aluno: alunos){
             System.out.println(aluno);
         }
+    }
+
+
+    @Override
+    public String toString() {
+        return "Curso = "+ nome +", descricao=" + descricao;
     }
 }
