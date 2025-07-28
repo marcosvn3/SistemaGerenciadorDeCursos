@@ -11,6 +11,10 @@ public class Curso {
     private String descricao;
     private List<Aluno> alunos;
 
+    public Curso(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+    }
 
     /***
      * @author Cadastra um aluno ao curso.
