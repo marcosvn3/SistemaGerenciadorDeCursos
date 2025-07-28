@@ -12,7 +12,7 @@ public class Sistema {
         List<Professor> professores = new ArrayList<>();
         List<Aluno> alunos = new ArrayList<>();
 
-        Professor prof1 = new Professor("Marcos","15/03/1999","Marcos@proje.com","ma123","Dcomp");
+        Professor prof1 = new Professor("-----", "-----", "-------", "------", "Dcomp");
         professores.add(prof1);
 
 
@@ -27,8 +27,8 @@ public class Sistema {
 
         int opcao = input.nextInt();
 
-        while(opcao != 0) {
-            if(opcao == 1) {
+        while (opcao != 0) {
+            if (opcao == 1) {
                 int opcaoProfessor;
                 System.out.println("Selecione a opcao desejada:");
                 System.out.println("1 - Efetuar login:");
@@ -36,7 +36,7 @@ public class Sistema {
 
                 opcaoProfessor = input.nextInt();
 
-                if(opcaoProfessor == 1){
+                if (opcaoProfessor == 1) {
                     Scanner inputProfessor = new Scanner(System.in);
 
                     System.out.println("Passe seus dados:");
@@ -47,30 +47,39 @@ public class Sistema {
                     String senha = inputProfessor.nextLine();
 
 
-                    for(Professor i : professores){
-                        if (i.getEmail().equals(login) && i.getSenha().equals(senha)){
+                    for (Professor i : professores) {
+                        if (i.getEmail().equals(login) && i.getSenha().equals(senha)) {
                             boolean loginAceito = true;
 
-                            while(loginAceito){
+                            while (loginAceito) {
+                                //TODO tratar erros de entrada não numerica!!
+                                //logica funcionando!
                                 int opcaoLoginAceito;
                                 System.out.println("Selecione a opcao desejada:");
                                 System.out.println("1 - Cadastrar curso:");
                                 System.out.println("2 - listar cursos cadastrados:");
                                 System.out.println("3 - Sair:");
 
-                                opcaoLoginAceito = input.nextInt(); // erro apos o primeiro cadastro, verificar!
+                                opcaoLoginAceito = input.nextInt();
 
-                                if(opcaoLoginAceito == 1){
-                                    System.out.print("Nome do curso:");
-                                    String nomeCurso = input.next();
+                                if (opcaoLoginAceito == 1) {
+                                    System.out.print("Digite o nome do curso:");
+                                    String nomeCurso = inputProfessor.nextLine();
 
-                                    System.out.print("Descricao do curso:");
-                                    String descricao = input.next();
+                                    System.out.print("Digite o descricao do curso:");
+                                    String descricao = inputProfessor.nextLine();
 
-                                    i.criarCurso(new Curso(nomeCurso,descricao));
+                                    i.criarCurso(new Curso(nomeCurso, descricao));
+                                } else if (opcaoLoginAceito == 2) {
+                                    i.listarCursos();
+                                } else if (opcaoLoginAceito == 3) {
+                                    break;// retorna para login ou cadastro!
+                                } else {
+                                    System.out.println("Opcao invalida!");
                                 }
+
                             }
-                    }
+                        }
 
                     }
                 }
@@ -79,25 +88,10 @@ public class Sistema {
             }
 
 
-
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
 
 
 }
