@@ -2,24 +2,12 @@ package entidades;
 
 import exceptions.InvalidoException;
 
-import java.util.Objects;
-
+//TODO O aluno precisa de uma matricula(id) que atualiza a cada nova instancia!!!
 public class Aluno extends Usuario{
 
-
-    private Long matricula;
-
-    public Aluno(String nome,String dataNascimento, String email,String senha,Long matricula) {
+    public Aluno(String nome,String dataNascimento, String email,String senha) {
         super(nome,dataNascimento,email,senha);
-        this.matricula = matricula;
-    }
 
-    public Long getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(Long matricula) {
-        this.matricula = matricula;
     }
 
     /***
@@ -34,25 +22,11 @@ public class Aluno extends Usuario{
 
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Aluno aluno = (Aluno) o;
-        return Objects.equals(matricula, aluno.matricula);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), matricula);
-    }
 
     @Override
     public String toString() {
 
 
-        return "Aluno{" +super.toString()+
-                "matricula=" + matricula +
-                '}';
+        return "Aluno{" +super.toString()+'}';
     }
 }
