@@ -21,7 +21,7 @@ public class Sistema {
         System.out.println("0 - Encerrar sistema");
         int opcao = input.nextInt();
 
-        do{
+        do {
             if (opcao == 1) {//TODO Tratar exceptions da seção
                 secaoProfessor();
             } else if (opcao == 2) {
@@ -33,7 +33,7 @@ public class Sistema {
             System.out.println("2 - Aluno");
             System.out.println("0 - Encerrar sistema");
             opcao = input.nextInt();
-        }while (opcao != 0);
+        } while (opcao != 0);
     }
 
 
@@ -114,25 +114,23 @@ public class Sistema {
                 String departamentoProfessor = input.nextLine();
 
                 professores.add(new Professor(nomeProfessor, dataNascimentoProfessor, emailProfessor, senhaProfessor, departamentoProfessor));
-            }
-            else if (opcaoProfessor == 3) {
+            } else if (opcaoProfessor == 3) {
                 for (Professor i : professores) {
                     System.out.println(i);
                 }
-            }
-            else if(opcaoProfessor == 0){
+            } else if (opcaoProfessor == 0) {
                 System.out.println("Voltando...!");
                 secaoProfessorBool = false;
-            }else {
+            } else {
                 System.out.println("Opcao invalida!");
             }
-        }while(secaoProfessorBool);
+        } while (secaoProfessorBool);
 
     }
 
     private void secaoAluno() {
         boolean alunoAceito = true;
-        do{
+        do {
 
             int opcaoAluno;
             System.out.println("Selecione a opcao desejada:");
@@ -170,8 +168,7 @@ public class Sistema {
                                 for (Curso curso : cursos) {
                                     System.out.println(curso);
                                 }
-                            }
-                            else if (opcaoLoginAceito == 2) {
+                            } else if (opcaoLoginAceito == 2) {
                                 System.out.println("Digite o nome do curso que voce quer se cadastrar:");
                                 input.nextLine();
                                 String nomeCurso = input.nextLine();
@@ -183,11 +180,9 @@ public class Sistema {
                                         System.out.println("Curso não encontrado!");
                                     }
                                 }
-                            }
-                            else if (opcaoLoginAceito == 3) {
+                            } else if (opcaoLoginAceito == 3) {
                                 loginAceito = false;
-                            }
-                            else {
+                            } else {
                                 System.out.println("Opcao invalida!");
                             }
                         }
@@ -195,8 +190,7 @@ public class Sistema {
 
                 }
 
-            }
-            else if(opcaoAluno == 2){
+            } else if (opcaoAluno == 2) {
                 System.out.print("Para se cadastrar passe os seguintes dados");
 
                 input.nextLine();
@@ -213,29 +207,24 @@ public class Sistema {
                 String senhaAluno = input.nextLine();
 
                 for (Aluno aluno : alunos) {
-                    if(!aluno.getEmail().equals(emailAluno)) {
+                    if (!aluno.getEmail().equals(emailAluno)) {
                         alunos.add(new Aluno(nomeAluno, dataNascimentoAluno, emailAluno, senhaAluno));
-                    }else{
+                    } else {
                         System.out.println("Aluno ja no sistema cadastrado!");
                     }
                 }
                 System.out.println("Cadastro concluido com sucesso!");
-            }
-            else if(opcaoAluno == 3){
-                for(Curso curso : cursos){
+            } else if (opcaoAluno == 3) {
+                for (Curso curso : cursos) {
                     System.out.println(curso);
                 }
-            }
-            else if(opcaoAluno == 0){
+            } else if (opcaoAluno == 0) {
                 System.out.println("Voltando...");
                 alunoAceito = false;
-            }
-            else{
+            } else {
                 System.out.println("Opcao invalida!");
             }
 
-        }while (alunoAceito);
-
-
+        } while (alunoAceito);
     }
 }
