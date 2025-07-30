@@ -52,7 +52,6 @@ abstract class Usuario {
     public String toString() {
         return  "name='" + name + '\'' +
                 ", dataNascimento='" + dataNascimento + '\'' +
-                ", email='" + email + '\''+
-                ", senha='" + senha + '\'';
+                ", email='" + email + '\'';
     }
 }
