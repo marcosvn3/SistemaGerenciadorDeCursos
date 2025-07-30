@@ -12,10 +12,6 @@ public class Sistema {
         List<Professor> professores = new ArrayList<>();
         List<Aluno> alunos = new ArrayList<>();
 
-        Professor prof1 = new Professor("-----", "-----", "-------", "------", "Dcomp");
-        professores.add(prof1);
-
-
         System.out.println("=================================");
         System.out.println("Bem-vindo ao nosso sistema!");
         System.out.println("=================================");
@@ -28,23 +24,23 @@ public class Sistema {
         int opcao = input.nextInt();
 
         while (opcao != 0) {
-            if (opcao == 1) {
+            if (opcao == 1) {//TODO Tratar exceptions da seção
                 int opcaoProfessor;
                 System.out.println("Selecione a opcao desejada:");
                 System.out.println("1 - Efetuar login:");
                 System.out.println("2 - Cadastrar:");
+                System.out.println("3 - listar professores:");
+                System.out.println("0 - Encerrar sistema!");
 
                 opcaoProfessor = input.nextInt();
 
                 if (opcaoProfessor == 1) {
-                    Scanner inputProfessor = new Scanner(System.in);
-
                     System.out.println("Passe seus dados:");
-                    System.out.println("Email: ");
-                    String login = inputProfessor.nextLine();
-                    System.out.println();
+                    input.nextLine(); //TODO Usado para limpar o Scanner sem fechar o input!
+                    System.out.print("Email: ");
+                    String login = input.nextLine();
                     System.out.println("Senha:");
-                    String senha = inputProfessor.nextLine();
+                    String senha = input.nextLine();
 
 
                     for (Professor i : professores) {
@@ -63,11 +59,12 @@ public class Sistema {
                                 opcaoLoginAceito = input.nextInt();
 
                                 if (opcaoLoginAceito == 1) {
+                                    input.nextLine();
                                     System.out.print("Digite o nome do curso:");
-                                    String nomeCurso = inputProfessor.nextLine();
+                                    String nomeCurso = input.nextLine();
 
                                     System.out.print("Digite o descricao do curso:");
-                                    String descricao = inputProfessor.nextLine();
+                                    String descricao = input.nextLine();
 
                                     i.criarCurso(new Curso(nomeCurso, descricao));
                                 } else if (opcaoLoginAceito == 2) {
@@ -83,7 +80,35 @@ public class Sistema {
 
                     }
                 }
+                else if(opcaoProfessor == 2){ //TODO tratar erros de entrada não String!!
+                    System.out.print("Para se cadastrar passe os seguintes dados");
 
+                    input.nextLine();
+                    System.out.print("\nNome:");
+                    String nomeProfessor = input.nextLine();
+
+                    System.out.print("\nData de nascimento(**/**/****):");
+                    String dataNascimentoProfessor = input.nextLine();
+
+                    System.out.print("\nEmail:");
+                    String emailProfessor = input.nextLine();
+
+                    System.out.print("\nSenha:");
+                    String senhaProfessor = input.nextLine();
+
+                    System.out.print("\nDepartamento:");
+                    String departamentoProfessor = input.nextLine();
+
+                    professores.add(new Professor(nomeProfessor,dataNascimentoProfessor,emailProfessor,senhaProfessor,departamentoProfessor));
+                }
+                else if(opcaoProfessor == 3) {
+                    for (Professor i : professores) {
+                        System.out.println(i);
+                    }
+                }
+                else{
+                    System.out.println("Opcao invalida!");
+                }
 
             }
 
