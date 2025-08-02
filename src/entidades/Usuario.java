@@ -51,6 +51,6 @@ abstract class Usuario {
     @Override
     public String toString() {
         return  "name='" + name + '\'' +
-                ", email='" + email + '\'';
+                ", email='" + email + ", "+'\'';
     }
 }

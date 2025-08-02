@@ -9,11 +9,13 @@ public class Curso {
 
     private String nome;
     private String descricao;
+    private Professor responsavel;
     private List<Aluno> alunos;
 
-    public Curso(String nomeCurso, String descricao) {
+    public Curso(String nomeCurso, String descricao,Professor responsavel) {
         this.nome = nomeCurso;
         this.descricao = descricao;
+        this.responsavel = responsavel;
     }
 
     public String getDescricao() {
@@ -32,12 +34,20 @@ public class Curso {
         this.nome = nome;
     }
 
+    public Professor getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(Professor responsavel) {
+        this.responsavel = responsavel;
+    }
+
     /***
      * @author Cadastra um aluno ao curso.
      * @param aluno
      */
     public void cadastrarAluno(Aluno aluno) {
-        if (aluno == null) {
+        if (aluno != null) {
             alunos.add(aluno);
             System.out.println("Aluno cadastrado com sucesso!");
         } else {
