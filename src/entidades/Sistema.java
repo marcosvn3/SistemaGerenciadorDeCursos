@@ -31,8 +31,10 @@ public class Sistema {
                     } else if (opcao == 2) {
                         secaoAluno();
                     }
-
-
+                    System.out.println("1 - Professor");
+                    System.out.println("2 - Aluno");
+                    System.out.println("0 - Encerrar sistema");
+                    opcao = input.nextInt();
                     continuar = false;
                 } while (opcao != 0);
                 System.out.println("Programa finalizado!");
@@ -132,7 +134,7 @@ public class Sistema {
                 } else if (opcaoProfessor == 0) {
                     System.out.println("Voltando...!");
                     secaoProfessorBool = false;
-                } else {
+                }else{
                     System.out.println("Opcao invalida!");
                 }
             }catch (InputMismatchException e){
