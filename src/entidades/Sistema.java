@@ -117,8 +117,11 @@ public class Sistema {
                         System.out.print("Digite o descricao do curso:");
                         String descricao = input.nextLine();
 
-                        i.criarCurso(new Curso(nomeCurso, descricao,i));
-                        cursos.add(new Curso(nomeCurso, descricao,i));
+                        Curso cs = new Curso(nomeCurso, descricao,i);
+
+                        i.criarCurso(cs);
+                        cursos.add(cs);
+
                     } else if (opcaoLoginAceito == 2) {
                         i.listarCursos();
                     } else if (opcaoLoginAceito == 3) {
@@ -238,7 +241,7 @@ public class Sistema {
                     } else if (opcaoLoginAceito == 2) {
                         input.nextLine();
                         System.out.println("Digite o nome do curso que voce quer se cadastrar:");
-                        String nomeCurso = input.nextLine(); // trava aqui !!
+                        String nomeCurso = input.nextLine();
 
                         for (Curso curso : cursos) {
                             if (verificarCursoCadastrado(nomeCurso)) {
