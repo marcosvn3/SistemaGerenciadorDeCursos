@@ -40,7 +40,7 @@ public class Sistema {
                 System.out.println("Programa finalizado!");
 
             } catch (InputMismatchException e) {
-                System.err.printf("ERRO! Passe uma opcao valida!!\n\n");
+                System.err.printf("\n\nERRO! Passe uma opcao valida!!🛑🛑🛑\n");
                 input.nextLine();
             }
 
@@ -67,17 +67,20 @@ public class Sistema {
                 } else if (opcaoProfessor == 2) { //TODO tratar erros de entrada não String!!
                     cadastrarProfessorSistema();
                 } else if (opcaoProfessor == 3) {
+                    if(professoresCadastrados.isEmpty()){
+                        System.out.println("Nenhum professor cadastrado até o momento!! 😢");
+                    }
                     for (Professor i : professoresCadastrados) {
                         System.out.println(i);
                     }
                 } else if (opcaoProfessor == 0) {
-                    System.out.println("Voltando...!");
+                    System.out.println("Voltando...⏪⏪⏪!");
                     secaoProfessorBool = false;
                 } else {
-                    System.out.println("Opcao invalida!");
+                    System.out.println("Opcao invalida!❌❌❌");
                 }
             } catch (InputMismatchException e) {
-                System.err.printf("ERRO! Passe uma opcao valida!!\n\n");
+                System.err.printf("\n\nERRO! Passe uma opcao valida!!🛑🛑🛑\n");
                 input.nextLine();
             }
 
@@ -123,11 +126,14 @@ public class Sistema {
                         cursos.add(cs);
 
                     } else if (opcaoLoginAceito == 2) {
+                        if(i.getCursoList().size() == 0){
+                            System.out.println("Nenhum curso cadastrado até o momento!!!😢");
+                        }
                         i.listarCursos();
                     } else if (opcaoLoginAceito == 3) {
                         loginAceito = false;
                     } else {
-                        System.out.println("Opcao invalida!");
+                        System.out.println("Opcao invalida!❌❌❌");
                     }
 
                 }
@@ -156,9 +162,9 @@ public class Sistema {
         String departamentoProfessor = input.nextLine();
         if (!verificarProfessorExistente(emailProfessor)) {
             professoresCadastrados.add(new Professor(nomeProfessor, dataNascimentoProfessor, emailProfessor, senhaProfessor, departamentoProfessor));
-            System.out.println("Professor cadastrado com sucesso!!");
+            System.out.println("Professor cadastrado com sucesso!!✅✅✅");
         } else {
-            System.out.println("Professor ja existente!");
+            System.out.println("Professor ja existente!🚫🚫🚫");
         }
     }
 
@@ -192,17 +198,20 @@ public class Sistema {
                     cadastarAlunoSistema();
 
                 } else if (opcaoAluno == 3) {
+                    if(cursos.isEmpty()){
+                        System.out.println("Nenhum curso cadastrado até o momento!!!😢");
+                    }
                     for (Curso curso : cursos) {
                         System.out.println(curso);
                     }
                 } else if (opcaoAluno == 0) {
-                    System.out.println("Voltando...");
+                    System.out.println("Voltando...⏪⏪⏪!");
                     secaoAlunoBool = false;
                 } else {
                     System.out.println("Opcao invalida!");
                 }
             } catch (InputMismatchException e) {
-                System.err.printf("ERRO! Passe uma opcao valida!!\n\n");
+                System.err.printf("\n\nERRO! Passe uma opcao valida!!🛑🛑🛑\n");
                 input.nextLine();
             }
 
@@ -224,7 +233,6 @@ public class Sistema {
                 boolean loginAceito = true;
 
                 while (loginAceito) {
-                    //TODO tratar erros de entrada não numerica!!
                     //logica funcionando!
                     int opcaoLoginAceito;
                     System.out.println("Selecione a opcao desejada:");
@@ -247,13 +255,13 @@ public class Sistema {
                             if (verificarCursoCadastrado(nomeCurso)) {
                                 curso.cadastrarAluno(i);
                             } else {
-                                System.out.println("Curso não encontrado!");
+                                System.out.println("Curso não encontrado!❌❌❌");
                             }
                         }
                     } else if (opcaoLoginAceito == 3) {
                         loginAceito = false;
                     } else {
-                        System.out.println("Opcao invalida!");
+                        System.out.println("Opcao invalida!❌❌❌");
                     }
                 }
             }
@@ -278,11 +286,13 @@ public class Sistema {
 
         if (!verificarAlunoExistente(emailAluno)) {
             alunosCadastrados.add(new Aluno(nomeAluno, dataNascimentoAluno, emailAluno, senhaAluno));
-            System.out.println("Aluno cadastrado com sucesso!!");
+            System.out.println("Aluno cadastrado com sucesso!!✅✅✅");
         } else {
-            System.out.println("Aluno ja existente!");
+            System.out.println("Aluno ja existente!🚫🚫🚫");
         }
     }
+
+
     private boolean verificarProfessorExistente(String email) {
         for (Professor i : professoresCadastrados) {
             if (i.getEmail().equals(email)) {
