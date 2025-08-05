@@ -3,6 +3,7 @@ package entidades;
 import exceptions.InvalidoException;
 import exceptions.NaoEncontradoException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Curso {
@@ -16,6 +17,7 @@ public class Curso {
         this.nome = nomeCurso;
         this.descricao = descricao;
         this.responsavel = responsavel;
+        alunos = new ArrayList<>();
     }
 
     public String getDescricao() {
@@ -46,6 +48,7 @@ public class Curso {
      * @author Cadastra um aluno ao curso.
      * @param aluno
      */
+
     public void cadastrarAluno(Aluno aluno) {
         if (aluno != null) {
             alunos.add(aluno);

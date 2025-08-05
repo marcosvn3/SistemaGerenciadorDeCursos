@@ -10,23 +10,8 @@ public class Aluno extends Usuario{
 
     }
 
-    /***
-     * @param curso
-     */
-    public void inscreverCurso(Curso curso){
-        if(curso != null){
-            curso.cadastrarAluno(this);
-        }else{
-            throw new InvalidoException("Se inscreva em um curso válido!");
-        }
-
-    }
-
-
     @Override
     public String toString() {
-
-
         return "Aluno{" +super.toString()+'}';
     }
 }
